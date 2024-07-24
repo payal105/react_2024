@@ -28,6 +28,11 @@ function App() {
   useEffect(() => {
     generatePassword()
   },[length,numberAllowed,charAllowed])
+
+  const copyPasswordToCipboard = () =>{
+    window.navigator.clipboard.writeText(password)
+
+  }
   return (
     <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-800 text-orange-500'>
      <h1 className='text-white text-center my-3'>Password Generator</h1>
@@ -38,7 +43,7 @@ function App() {
         placeholder='Password'
         readOnly
         />
-        <button
+        <button onClick={copyPasswordToCipboard}
         className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'
         >copy</button>
      </div>
